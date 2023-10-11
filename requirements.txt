@@ -20,3 +20,4 @@ kaleido
 pyarrow
 ruff
 polars
+sqlite-utils
