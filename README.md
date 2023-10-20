@@ -1,6 +1,5 @@
-## Python script that interacts with a SQL database.
+## Python script into a command-line tool
 
-[![SQL CI/CD](https://github.com/nogibjj/IDS-Week5_MiniProject_us26/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS-Week5_MiniProject_us26/actions/workflows/cicd.yml)
 
 <p align="center">
   <img width="600" src="https://github.com/nogibjj/IDS-Week5_MiniProject_us26/blob/main/images/schema.png" alt="schema">
@@ -9,41 +8,38 @@
 
 ### Overview
 
-This repo has been created by forked from (https://github.com/nogibjj/sqlite-lab). I have used world university ranking csv file and loaded it into 'ranking.db' database under the table name 'universities'. Using **CRUD** operation to interacts with a SQL database.
+Using the sqlite-utils command-line tool we can directly run the sql commands from cmd. It can be used to manipulate SQLite databases in a number of different ways. I will again be doing CRUD operations but directly from terminal.
 
-Here is an overview of CRUD operations:
-		
-  CRUD stands for Create, Read, Update, and Delete, which are the four basic operations for managing data in a database or data storage system. These operations are essential for interacting with and manipulating data within an application or database. Here's a brief overview of each CRUD operation:
+### User Guide
 
-1. **Create (C)**:
-   - Create is the operation used to add new data or records to a database.
-   - It typically involves inserting a new row or document into a database table or collection.
-   - In SQL, you use the `INSERT INTO` statement to create new records in a table.
-   - In NoSQL databases, you often use methods like `insertOne` or `insertMany` to add documents to a collection.
+This is the **default subcommand**, so the following two examples work the same way:
 
-2. **Read (R)**:
-   - Read is the operation used to retrieve data from a database.
-   - It involves querying the database to fetch existing records based on specific criteria.
-   - In SQL, you use the `SELECT` statement to read data from a table.
-   - In NoSQL databases, you use various query methods to retrieve documents that match your criteria.
+  - sqlite-utils query dogs.db "select * from dogs"
 
-3. **Update (U)**:
-   - Update is the operation used to modify existing data in a database.
-   - It typically involves changing the values of one or more fields in an existing record.
-   - In SQL, you use the `UPDATE` statement to update data in a table.
-   - In NoSQL databases, you use methods like `updateOne` or `updateMany` to modify documents in a collection.
+  - sqlite-utils dogs.db "select * from dogs"
 
-4. **Delete (D)**:
-   - Delete is the operation used to remove data from a database.
-   - It can involve deleting specific records or entire rows from a table.
-   - In SQL, you use the `DELETE` statement to remove data from a table.
-   - In NoSQL databases, you use methods like `deleteOne` or `deleteMany` to delete documents from a collection.
+**UPDATE, INSERT and DELETE**
+
+If you execute an UPDATE, INSERT or DELETE query the command will return the number of affected rows:
+
+    sqlite-utils dogs.db "update dogs set age = 5 where name = 'Cleo'"
+
+    [{"rows_affected": 1}]
+
+If your data is in **CSV format**, you can insert it using the --csv option:
+
+    sqlite-utils insert dogs.db dogs dogs.csv --csv
+
+Here is the documentation for more command line tools for reference [sqlite-utils](https://sqlite-utils.datasette.io/en/stable/cli.html)
 
 
 ### Code Description
 
+This repo has been created by forked from (https://github.com/nogibjj/sqlite-lab). I have used world university ranking csv file and loaded it into 'ranking.db' database under the table name 'universities'. 
+
 1. create.py
     This script is used for load and transform. A databased called 'ranking.db' with a table named 'universities' is created and a csv file is loaded into that table.
+
 2. read.py
     This script is used to interact with the SQL database. The queries used are :
     - SELECT "Name of University" FROM universities WHERE
