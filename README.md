@@ -40,20 +40,39 @@ This repo has been created by forked from (https://github.com/nogibjj/sqlite-lab
 1. create.py
     This script is used for load and transform. A databased called 'ranking.db' with a table named 'universities' is created and a csv file is loaded into that table.
 
+<p align="center">
+  <img width="600" src="https://github.com/nogibjj/IDS-Week5_MiniProject_us26/blob/main/images/create.png" alt="schema">
+</p>
+
 2. read.py
     This script is used to interact with the SQL database. The queries used are :
-    - SELECT "Name of University" FROM universities WHERE
-      "Location" == "United States"
-    - SELECT "Name of University", "No of student per staff" FROM
-      universities WHERE "No of student per staff" > 40.0
-    - SELECT "Name of University", "No of student per staff" FROM
-        universities WHERE ("No of student per staff" < 40.0) AND ("Location" == "Canada")
+    - sqlite-utils query ranking.db 'SELECT "Name of University" FROM universities WHERE
+      "Location" == "United States"'
+    - sqlite-utils query ranking.db 'SELECT "Name of University", "No of student per staff" FROM
+      universities WHERE "No of student per staff" > 40.0'
+    - sqlite-utils query ranking.db 'SELECT "Name of University", "No of student per staff" FROM
+        universities WHERE ("No of student per staff" < 40.0) AND ("Location" == "Canada")'
+
+<p align="center">
+  <img width="600" src="https://github.com/nogibjj/IDS-Week5_MiniProject_us26/blob/main/images/read.png" alt="schema">
+</p>
+
 3. update.py
     Updating of tuple values already present in the table.
 
+    - sqlite-utils query ranking.db "update universities set Location = 'australia' where Location = 'Australia'"
+
+<p align="center">
+  <img width="600" src="https://github.com/nogibjj/IDS-Week5_MiniProject_us26/blob/main/images/update.png" alt="schema">
+</p>
+
 4. delete.py
     Deletion of data present in the table. The query used is :
-      DELETE FROM universities WHERE "Industry Income Score" < 90.0
+      sqlite-utils query ranking.db 'DELETE FROM universities WHERE "Industry Income Score" < 90.0'
+
+<p align="center">
+  <img width="600" src="https://github.com/nogibjj/IDS-Week5_MiniProject_us26/blob/main/images/delete.png" alt="schema">
+</p>
 
 6. test_graph.py
     ** pd.read_sql_query **  is used for creating visualisation.
