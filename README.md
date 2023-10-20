@@ -14,9 +14,9 @@ Using the sqlite-utils command-line tool we can directly run the sql commands fr
 
 This is the **default subcommand**, so the following two examples work the same way:
 
-  - sqlite-utils query dogs.db "select * from dogs"
+	sqlite-utils query dogs.db "select * from dogs"
 
-  - sqlite-utils dogs.db "select * from dogs"
+	sqlite-utils dogs.db "select * from dogs"
 
 **UPDATE, INSERT and DELETE**
 
