@@ -1,5 +1,6 @@
 ## Python script into a command-line tool
 
+[![SQL CI/CD](https://github.com/nogibjj/IDS-Week7_MiniProject_us26/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS-Week7_MiniProject_us26/actions/workflows/cicd.yml)
 
 <p align="center">
   <img width="600" src="https://github.com/nogibjj/IDS-Week5_MiniProject_us26/blob/main/images/schema.png" alt="schema">
